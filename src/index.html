@@ -602,16 +602,19 @@
               <div class="direct-color-input-div">
                 <h2>Direct color input:</h2>
                 <label>Color:</label>
-                <input type="color" id="colorInput" onchange=/"
-                window.colorPicker.color.hexString = this.value if
-                (document.getElementById('updateAmb').checked) {
-                document.getElementById('ambientInput').value =
-                window.hex2ambient(this.value)
-                window.ambientPicker.color.hexString =
-                document.getElementById('ambientInput').value
-                window.updateAmbientColors(window.ambientPicker.color) }
-                window.updateColors(window.colorPicker.color)
-                window.myMario.saveSkin()">
+                <input
+                  type="color"
+                  id="colorInput"
+                  onchange="`
+                  window.colorPicker.color.hexString = this.value;
+                  if (document.getElementById('updateAmb').checked) {
+                    document.getElementById('ambientInput').value = window.hex2ambient(this.value);
+                    window.ambientPicker.color.hexString = document.getElementById('ambientInput').value;
+                    window.updateAmbientColors(window.ambientPicker.color) 
+                  }
+                  window.updateColors(window.colorPicker.color)
+                  window.myMario.saveSkin()`"
+                />
                 <label> Ambient color:</label>
                 <input
                   type="color"
