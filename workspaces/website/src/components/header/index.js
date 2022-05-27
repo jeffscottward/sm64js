@@ -1,6 +1,8 @@
 import { h } from "preact";
 import { Link } from "preact-router/match";
 import style from "./style.css";
+import githubicon from "../../assets/github-icon.svg";
+import discordicon from "../../assets/discord-icon.svg";
 
 const Header = () => (
   <header class={style.header}>
@@ -11,18 +13,24 @@ const Header = () => (
       />
     </a>
     <nav>
-      <div>
+      
         <a target="_BLANK" href="https://vanilla.sm64js.com">Vanilla</a>
         <a target="_BLANK" href="https://60fps.sm64js.com">60 FPS</a>
         <Link href="/about">About</Link>
         <Link href="/privacy">Privacy</Link>
-        <a target="_BLANK" href="https://github.com/sm64js/sm64js">Source Code</a>
-        <a target="_BLANK" href="https://github.com/sm64js/sm64js/issues">
-          Report Bug/Issue
-        </a>
-        <a target="_BLANK" href="https://discord.gg/7UaDnJt">Discord Server</a>
         <Link href="/rules">Rules</Link>
-      </div>
+        <a target="_BLANK" href="https://github.com/sm64js/sm64js">
+          <div style={{display: 'grid', placeItems:'center'}}>
+            <img src={githubicon} style={{height: '20px', display: "block"}}/>  
+          </div>
+        </a>
+        <a target="_BLANK" href="https://discord.gg/7UaDnJt">
+        <div style={{display: 'grid', placeItems:'center'}}>
+            <img src={discordicon} style={{height: '20px', display: "block"}}/>  
+          </div>
+        </a>
+        
+      
     </nav>
   </header>
 );

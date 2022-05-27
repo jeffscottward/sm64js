@@ -4,6 +4,7 @@ html, body {
 	padding: 0;
 	margin: 0;
 	background: #FAFAFA;
+	background: url('../assets/sm64js-background.png');
 	font-family: 'Helvetica Neue', arial, sans-serif;
 	font-weight: 400;
 	color: #444;
@@ -17,4 +18,31 @@ html, body {
 
 #app {
 	height: 100%;
+}
+
+.page {
+	margin: 0 auto;
+	max-width: 1080px;
+	padding: 2rem 4rem;
+}
+
+.page-contents {
+	background: rgba(255,255,255,.85);
+	padding: 1rem 2rem;
+}
+
+p, li, a, span {
+	font-size: .9rem;
+}
+
+button, details, input[type="file"], input[type="submit"], input[type="button"]{
+	cursor: pointer;
+}
+
+canvas {
+	background: black;
+	max-width: 100%;
+}
+details, details * {
+	font-size: .8rem;
 }
