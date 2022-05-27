@@ -5,6 +5,10 @@
   "author": {
     "name": "Snuffy"
   },
+  "workspaces": [
+    "website",
+    "game"
+  ],
   "scripts": {
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
