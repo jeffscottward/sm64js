@@ -24,6 +24,36 @@ import * as inp from "./player_input_manager.js";
 import { playerInputUpdate } from "./player_input_manager";
 
 
+// WINDOW OBJECTS
+
+// window.pvp
+// window.togglePvp
+
+// window.sm64js
+// window.sm64js.debug.ext
+// window.sm64js.reset
+// window.sm64js.fps
+// window.sm64js.latency
+// window.sm64js.fps
+// window.sm64js.widescreen
+
+// window.location.hash.slice
+// window.location.search
+// window.location.href
+
+// window.screen.width
+// window.screen.height
+
+// window.toggleWidescreen
+// window.enterFullScreenMode
+
+// window.switchbox
+// window.deleteRom
+
+// window.onload
+// window.addEventListener
+
+
 const $ = document.querySelector;
 window.pvp = true;
 
@@ -124,7 +154,6 @@ const on_anim_frame = (time) => {
     }
   }
 
-  if (window.kill) throw "stopping game execution";
   requestAnimationFrame(on_anim_frame);
 };
 
