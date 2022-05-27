@@ -11,7 +11,10 @@ import { intro_geo_0002D0, intro_geo_00035C } from "./geo"
 import { WARP_TRANSITION_FADE_FROM_STAR, WARP_TRANSITION_FADE_INTO_COLOR } from "../../game/Area"
 import { level_main_scripts_entry } from "../scripts"
 import { lvl_intro_update, intro_default } from "../../menu/level_select_menu"
-import { getSelectedLevel } from "../../utils"
+
+export const getSelectedLevel = () => {
+    return window.selectedMap;
+};
 
 const level_intro_entry_2 = [
     INIT_LEVEL(),

@@ -5,9 +5,33 @@ import * as RAW from "../include/object_constants"
 import { networkData, gameData } from "./socket"
 import { defaultSkinData } from "./cosmetics"
 import { INTERACT_PLAYER } from "../game/Interaction"
-import { levelIdToName } from "../utils"
 import { gLinker } from "../game/Linker"
 import { selfAdmin } from "./chat"
+
+export const levelIdToName = {
+    4: "Big Boo's Haunt",
+    5: "Cool, Cool Mountain",
+    6: "Castle Inside First Level",
+    7: "Hazy Maze Cave",
+    8: "Shifting Sand Land",
+    9: "Bob-omb Battlefield",
+    10: "Snowman's Land",
+    16: "Castle Grounds",
+    24: "Whomp's Fortress",
+    26: "Castle Courtyard",
+    27: "Princess's Secret Slide",
+    29: "Tower of the Wing Cap",
+    36: "Tall, Tall Mountain",
+    56: "Cool, Cool Mountain Slide",
+    602: "Castle Inside Second Level",
+    999: "Clouded Ruins",
+    1000: "Mushroom Battlefield",
+    1001: "CTF/Race Map",
+    1002: "Starman Fortress",
+    1003: "Glider Jungle",
+    1004: "Mushroom Raceway",
+    1006: "Dolphin Town",
+  };
 
 const url = new URL(window.location.href)
 

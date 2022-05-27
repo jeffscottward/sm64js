@@ -16,6 +16,810 @@
       gtag("js", new Date());
       gtag("config", "UA-178244102-1");
     </script>
+    <style>
+      /* Happy 2 year anniversary! */
+      .anniversaryText {
+        animation: sm64title 2.2s linear;
+        color: #f3e107;
+      }
+      /* HTML, contains background */
+      html {
+        height: 100%;
+        background-color: #050413;
+        background-image: url("/mmo/assets/sm64js-background.png");
+        background-size: 14.3%;
+        background-repeat: repeat;
+      }
+      /* Mario Fonts */
+      @font-face {
+        font-family: "SuperMario64Logo";
+        src: url("/mmo/assets/SuperMario256.ttf");
+      }
+      @font-face {
+        font-family: "TextboxFont";
+        src: url("/mmo/assets/mario-64-textbox-themh.ttf");
+      }
+      .mario-font {
+        font-family: "SuperMario64Logo";
+        letter-spacing: -2px;
+        text-transform: uppercase;
+        -webkit-text-stroke: 2px #e3aa63;
+        text-shadow: 0px 4px #b98a50, 2px 3px #b98a50, -3px 3px #b98a50,
+          -3px -1px #b98a50;
+      }
+      .descriptionContact {
+        color: #bac9ff;
+        font-family: "TextboxFont";
+        letter-spacing: -0.2px;
+        font-size: inherit;
+        margin: 0;
+      }
+      .descriptionContact:hover {
+        border-bottom: 0.15em solid hsla(0, 0%, 100%, 0.25);
+        padding-bottom: 0.2em;
+      }
+      /* Body  */
+      body {
+        color: #fff;
+        font-family: "TextboxFont";
+        letter-spacing: -0.2px;
+        text-align: center;
+      }
+      .siteMargins {
+        margin-left: 10%;
+        margin-right: 10%;
+      }
+      #select {
+        font-family: "TextboxFont";
+      }
+      /*Menus*/
+      #signboxBackground {
+        background-image: url("/mmo/assets/yellow-background.png");
+        background-size: 100% 100%;
+        border-top: solid 20px #202020c7;
+        border-right: solid 20px #202020c7;
+        border-bottom: solid 20px #e3e3e32e;
+        border-left: solid 20px #e3e3e32e;
+        margin: auto;
+        padding: 1em;
+        background-clip: padding-box;
+        height: 31.2em;
+      }
+      #signboxBorder {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        padding-left: 2em;
+        padding-right: 2em;
+        margin: 0;
+        background-image: url("/mmo/assets/yellow-background.png");
+        background-size: 100% 100%;
+        height: 35.5em;
+        width: auto;
+      }
+      #signboxBackground > div {
+        margin-bottom: 1em;
+      }
+      #signboxMargin {
+        margin-top: 4em;
+      }
+      #signboxMargin > div {
+        margin-top: 2em;
+      }
+      #controlsMargin {
+        margin-top: 2em;
+      }
+      .mapSelectDiv {
+        margin-top: 0.8em;
+      }
+      /* Misc menu things */
+      #optionsBackground {
+        background-image: url("/mmo/assets/blue-background.png");
+        background-size: 100% 100%;
+        border-top: solid 20px #202020c7;
+        border-right: solid 20px #202020c7;
+        border-bottom: solid 20px #e3e3e32e;
+        border-left: solid 20px #e3e3e32e;
+        margin: auto;
+        padding: 1em;
+        background-clip: padding-box;
+        height: 31.2em;
+      }
+      #optionsBorder {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        padding-left: 2em;
+        padding-right: 2em;
+        margin: 0;
+        background-image: url("/mmo/assets/blue-background.png");
+        background-size: 100% 100%;
+        height: 35.5em;
+        width: auto;
+      }
+      .settings-flex {
+        display: flex;
+        justify-content: center;
+      }
+      .settings-options {
+        margin-top: 0.2em;
+        column-gap: 0.2em;
+      }
+      .settings-options label {
+        margin-top: 0.2em;
+        margin-left: 1em;
+      }
+      #optionsBackground > div {
+        margin-bottom: 1em;
+      }
+      #customizeBackground {
+        background-image: url("/mmo/assets/pink-background.png");
+        background-size: 100% 100%;
+        border-top: solid 20px #202020c7;
+        border-right: solid 20px #202020c7;
+        border-bottom: solid 20px #e3e3e32e;
+        border-left: solid 20px #e3e3e32e;
+        margin: auto;
+        padding: 1em;
+        background-clip: padding-box;
+        height: 31.2em;
+      }
+      #customizeBorder {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        padding-left: 2em;
+        padding-right: 2em;
+        margin: 0;
+        background-image: url("/mmo/assets/pink-background.png");
+        background-size: 100% 100%;
+        height: 35.5em;
+        width: auto;
+      }
+      #customizeBackground > div {
+        margin-bottom: 1em;
+      }
+      .color-emote {
+        display: flex;
+      }
+      #colorCodePasteWindow {
+        width: fit-content;
+      }
+      .emoteMenu {
+        width: fit-content;
+      }
+      #pinkControls {
+        margin-top: 2.3em;
+      }
+      /* Gamepad & controls*/
+      #controlsBackground {
+        background-image: url("/mmo/assets/green-background.png");
+        background-size: 100% 100%;
+        border-top: solid 20px #202020c7;
+        border-right: solid 20px #202020c7;
+        border-bottom: solid 20px #e3e3e32e;
+        border-left: solid 20px #e3e3e32e;
+        margin: auto;
+        padding: 1em;
+        background-clip: padding-box;
+        height: 31.2em;
+      }
+      #controlsBorder {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        padding-left: 2em;
+        padding-right: 2em;
+        margin: 0;
+        background-image: url("/mmo/assets/green-background.png");
+        background-size: 100% 100%;
+        height: 35.5em;
+        width: auto;
+      }
+      #controlsFlex {
+        display: flex;
+      }
+      #keyboardControlsWindow {
+        display: flex;
+        width: 35%;
+        margin: auto;
+        margin-bottom: 1em;
+      }
+      #gamepadControlsWindow {
+        display: flex;
+        margin: auto;
+        margin-top: 0.2em;
+        margin-bottom: 1em;
+      }
+      #gamepadMessageDiv {
+        margin-right: 2em;
+        margin-left: 3em;
+      }
+      #noGamepadMessage {
+        margin: 0;
+      }
+      #gamepadMessage {
+        font-size: 1.2em;
+      }
+      #gamepadFlex {
+        display: flex;
+      }
+      #gamepadFlex > div {
+        margin-right: 1em;
+      }
+      #gamepadFlex > div > div {
+        display: flex;
+      }
+      #gamepadFlex > div > div > label {
+        flex: 1;
+      }
+      #gamepadFlex > div > div > select {
+        flex: 1;
+      }
+      .siteCenter {
+        justify-content: center;
+      }
+      #fpsMeter,
+      #pingMeter {
+        font-size: 1.8em;
+        margin-top: 0;
+      }
+      .deleteDiv {
+        display: flex;
+        justify-content: center;
+      }
+      .deleteDiv h2 {
+        margin-left: 1em;
+      }
+      /* Top menu, header, nav */
+      header {
+        width: 100%;
+      }
+      nav {
+        margin-top: 2.3%;
+        font-size: 90%;
+        color: hsla(0, 0%, 100%, 0.5);
+      }
+      header,
+      nav,
+      a {
+        color: hsla(0, 0%, 100%, 0.69);
+        text-decoration: none;
+        font-size: 120%;
+        margin: 0.2em;
+        margin-top: 1.4%;
+      }
+      nav a:hover,
+      a:focus {
+        border-bottom: 0.15em solid hsla(0, 0%, 100%, 0.25);
+        padding-bottom: 0.2em;
+      }
+      /* SM64JS Logo - Title */
+      img#title {
+        animation: sm64title 2.2s linear;
+        width: 64%;
+        height: auto;
+      }
+      /* Buttons */
+      input {
+        text-shadow: rgba(0, 0, 0, 0.3215686274509804) 2px 2px 1px;
+      }
+      .textInput {
+        width: 100%;
+        height: 2rem;
+        font-family: "TextboxFont";
+        font-size: 124%;
+        text-shadow: none;
+      }
+      .nameInput {
+        max-width: 10em;
+      }
+      select {
+        width: auto;
+        height: 2rem;
+        font-family: "TextboxFont";
+        font-size: 124%;
+        text-shadow: none;
+      }
+      .romFileText {
+        background-color: rgba(0, 0, 0, 0.3411764705882353);
+        color: white;
+        padding-right: 2em;
+        padding-left: 2em;
+        padding-top: 1em;
+        padding-bottom: 1em;
+      }
+      .loadRomButton {
+        height: 2em;
+        width: 4em;
+      }
+      /* Buttons */
+      /*Big thanks to PeraDeFruta64 for helping out with the new button borders*/
+      .sm64button {
+        border-top: 5px solid #f0f0f057;
+        border-right: 5px solid #f0f0f057;
+        border-bottom: 5px solid #313131b8;
+        border-left: 5px solid #313131b8;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        padding-top: 0.1em;
+        padding-bottom: 0.1em;
+        background-clip: padding-box;
+      }
+      .stone-button {
+        background-image: url("/mmo/assets/btn-stone-edit.png");
+        background-size: 100% 100%;
+        border: none;
+        font-weight: 348;
+        font-family: "TextboxFont";
+        font-size: 140%;
+        background-color: gray;
+        text-decoration: none;
+        text-shadow: rgba(0, 0, 0, 0.3215686274509804) 2px 2px 1px;
+        cursor: pointer;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        padding-top: 0.3em;
+        padding-bottom: 0.3em;
+        height: fit-content;
+      }
+      .ROMinput {
+        border-style: none;
+        background: none;
+        margin: 0;
+        background-image: url("/mmo/assets/input-green.png");
+        background-size: 100% 100%;
+        font-family: "TextboxFont";
+        font-size: 140%;
+        color: white;
+        background-color: green;
+        text-decoration: none;
+        text-shadow: rgba(0, 0, 0, 0.3215686274509804) 2px 2px 1px;
+        cursor: pointer;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+      }
+      .respawnButton {
+        border-style: none;
+        background: none;
+        margin: 0;
+        background-image: url("/mmo/assets/respawn-blue.png");
+        background-size: 100% 100%;
+        font-family: "TextboxFont";
+        font-size: 140%;
+        color: white;
+        background-color: green;
+        text-decoration: none;
+        text-shadow: rgba(0, 0, 0, 0.3215686274509804) 2px 2px 1px;
+        cursor: pointer;
+        padding-top: 0.3em;
+        padding-right: 0.4em;
+        padding-bottom: 0.3em;
+        padding-left: 0.4em;
+      }
+      .green-button {
+        border-style: none;
+        background: none;
+        margin: 0;
+        background-image: url("/mmo/assets/btn-green-edit.png");
+        background-size: 100% 100%;
+        font-family: "TextboxFont";
+        font-size: 140%;
+        color: white;
+        background-color: green;
+        text-decoration: none;
+        text-shadow: rgba(0, 0, 0, 0.3215686274509804) 2px 2px 1px;
+        cursor: pointer;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        height: fit-content;
+      }
+      .red-button {
+        border-style: none;
+        background: none;
+        margin: 0;
+        background-image: url("/mmo/assets/btn-red-edit.png");
+        background-size: 100% 100%;
+        font-family: "TextboxFont";
+        font-size: 140%;
+        color: white;
+        background-color: green;
+        text-decoration: none;
+        text-shadow: rgba(0, 0, 0, 0.3215686274509804) 2px 2px 1px;
+        cursor: pointer;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        height: fit-content;
+      }
+      .blue-button {
+        border-style: none;
+        background: none;
+        margin: 0;
+        background-image: url("/mmo/assets/btn-blue-edit.png");
+        background-size: 100% 100%;
+        font-family: "TextboxFont";
+        font-size: 140%;
+        color: white;
+        background-color: green;
+        text-decoration: none;
+        text-shadow: rgba(0, 0, 0, 0.3215686274509804) 2px 2px 1px;
+        cursor: pointer;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        height: fit-content;
+      }
+      .pink-button {
+        border-style: none;
+        background: none;
+        margin: 0;
+        background-image: url("/mmo/assets/btn-pink-edit.png");
+        background-size: 100% 100%;
+        font-family: "TextboxFont";
+        font-size: 140%;
+        color: white;
+        background-color: green;
+        text-decoration: none;
+        text-shadow: rgba(0, 0, 0, 0.3215686274509804) 2px 2px 1px;
+        cursor: pointer;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        height: fit-content;
+      }
+      .yellow-button {
+        border-style: none;
+        background: none;
+        margin: 0;
+        background-image: url("/mmo/assets/btn-yellow-edit.png");
+        background-size: 100% 100%;
+        font-family: "TextboxFont";
+        font-size: 140%;
+        color: white;
+        background-color: green;
+        text-decoration: none;
+        text-shadow: rgba(0, 0, 0, 0.3215686274509804) 2px 2px 1px;
+        cursor: pointer;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        height: fit-content;
+      }
+      /*Fix for the <a> button */
+      a.pink-button {
+        padding-top: 0.4em;
+        padding-bottom: 0.42em;
+      }
+      /* Fix some buttons so they look nicer / change their padding */
+
+      a.pink-button:focus {
+        padding-top: 0.4em;
+        padding-bottom: 0.42em;
+        border-bottom: 0;
+      }
+      /* Main elements */
+      main {
+        margin-top: 2%;
+      }
+      .removeVerticalMargins {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      h5 {
+        font-size: 1.2em;
+      }
+      h6.description {
+        font-size: 170%;
+        background-color: rgba(0, 0, 0, 0.3411764705882353);
+        padding: 1%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+      }
+      /* Sets all h1, h2 and other fonts as normal instead of bold
+because it looks weird in browsers like Firefox, looks decent on chrome but
+I'd prefer to let everyone see it as similar as possible*/
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: normal;
+      }
+      .romSelectText {
+        color: #ff0;
+        font-size: 28px;
+        margin-top: 16px;
+        margin-bottom: 12px;
+        animation: blinking 1s linear infinite;
+      }
+      .romMessageText {
+        font-size: 150%;
+        font-weight: normal;
+        background-color: rgba(0, 0, 0, 0.3411764705882353);
+        padding: 1%;
+        margin-top: 1%;
+        margin-bottom: 1%;
+      }
+      @keyframes blinking {
+        50% {
+          opacity: 0;
+        }
+      }
+      @keyframes sm64title {
+        0% {
+          transform: scale(0.2, 0.3);
+        }
+        8% {
+          transform: scale(1.4, 1.3);
+        }
+        10% {
+          transform: scale(0.8, 1.1);
+        }
+        12% {
+          transform: scale(1.1, 1);
+        }
+        14% {
+          transform: scale(1, 1);
+        }
+        15% {
+          transform: scale(0.8, 1.2);
+        }
+        16% {
+          transform: scale(1, 1);
+        }
+        17% {
+          transform: scale(0.9, 1.1);
+        }
+        18% {
+          transform: scale(1, 1);
+        }
+        100% {
+          transform: scale(1, 1);
+        }
+      }
+      /* Music */
+      #musicDiv h5 {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 1.4em;
+      }
+      #musicDiv h4 {
+        margin-top: 0.8em;
+        margin-bottom: 0.8em;
+        font-size: 2em;
+      }
+      /* From bootstrap, yes, I know */
+      .row {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+      }
+      .col-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+      audio {
+        width: 28em;
+        height: 2em;
+      }
+      /* Canvases for rendering the game output */
+      #relativePositioner {
+        /* Contains both the gameCanvas and the textCanvas */
+        position: relative;
+        width: 50%;
+        margin-left: 15%;
+      }
+      #moveLeft {
+        justify-content: flex-end;
+        display: flex;
+      }
+      #gameContainer {
+        display: flex;
+        z-index: 3;
+      }
+      #chatContainer {
+        margin-left: 2%;
+        width: 50%;
+        z-index: 4;
+        float: right;
+      }
+      #gameCanvas {
+        background-image: url("/mmo/assets/canvasBorder.png");
+        background-size: 100% 100%;
+        padding: 26px;
+      }
+      #textCanvas {
+        image-rendering: pixelated;
+        z-index: 3;
+      }
+      #textCanvas,
+      #fxCanvas {
+        position: absolute;
+        background-color: transparent;
+        margin: auto;
+        padding: 26px;
+      }
+      #fxCanvas {
+        z-index: 2;
+      }
+      .chatbox {
+        margin-top: 0.6em;
+        border: none;
+        background-color: #00000070;
+        text-align: left;
+        color: white;
+        font-style: normal;
+        padding: 0.4em;
+        box-sizing: border-box;
+        width: 100%;
+        height: 2rem;
+        font-family: "TextboxFont";
+        font-size: 124%;
+        text-shadow: none;
+        z-index: 1;
+      }
+      ul#chatlog {
+        list-style-type: none;
+      }
+      ul#creditsList {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+        font-size: 1em;
+      }
+      ul#creditsList li {
+        font-size: 1em;
+      }
+      #chatlog {
+        background-color: #eae2a7;
+        height: 20em;
+        max-height: 20em;
+        text-align: left;
+        color: black;
+        font-style: normal;
+        font-size: 1.4em;
+        padding: 1em;
+        margin-bottom: 0.2em;
+        z-index: 4;
+        overflow-y: scroll;
+      }
+      #rules {
+        background-color: white;
+        border-radius: 10px;
+        position: fixed;
+        top: 10%;
+        bottom: 10%;
+        left: 10%;
+        right: 10%;
+        z-index: 5;
+        color: black;
+        padding: 1%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+      }
+      #rules > hr {
+        width: 37em;
+        color: #0000006b;
+        margin-top: 2em;
+      }
+      #rules > p,
+      a {
+        font-size: 30px;
+      }
+      .rulesLogo {
+        width: 26%;
+        height: auto;
+      }
+      .rulesButton {
+        border-style: none;
+        background: none;
+        margin: 0;
+        background-image: url("/mmo/assets/btn-green-edit.png");
+        background-size: 100% 100%;
+        font-family: "TextboxFont";
+        font-size: 140%;
+        color: white;
+        background-color: green;
+        text-decoration: none;
+        text-shadow: rgba(0, 0, 0, 0.3215686274509804) 2px 2px 1px;
+        cursor: pointer;
+        padding: 0px;
+        margin-top: 1em;
+      }
+      .shunned {
+        filter: brightness(50%);
+        pointer-events: none;
+      }
+      #picker {
+        width: 25.3%;
+        float: left;
+      }
+      #ambpicker {
+        width: 25.3%;
+        float: right;
+        margin-left: 50%;
+      }
+      label {
+        font-size: 1.4rem;
+      }
+      #mapSelect {
+        width: 400px;
+        height: 2.6rem;
+        font-size: 22px;
+        font-family: "TextboxFont";
+      }
+      /* Skin customization menu */
+
+      #skinContents {
+        display: block;
+        justify-content: center;
+        text-align: center;
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+        margin-left: 60px;
+      }
+      .colorPickersContainer {
+        margin-left: 30%;
+        margin-right: 30%;
+        margin-bottom: 2em;
+        display: flex;
+      }
+      /* Connected message */
+
+      #connectedMsg {
+        margin-top: 0.5em;
+        font-size: 1.8em;
+      }
+      /* Credits */
+
+      .credits p {
+        font-size: 1.8em;
+      }
+      .credits h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: 2em;
+        margin-bottom: 0;
+      }
+      .credits .siteMargins {
+        margin-left: 8%;
+        margin-right: 8%;
+      }
+      .creditsCenter {
+        justify-content: center;
+      }
+      .creditsCenter h6,
+      .creditsCenter h5 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      h5 a {
+        font-weight: bold !important;
+      }
+      h6 a {
+        font-weight: bold !important;
+      }
+      .listPadding {
+        padding-left: 1em;
+      }
+      .listCredits {
+        text-align: left;
+        margin-left: 20%;
+        margin-right: 20%;
+        font-size: 1.5em;
+      }
+    </style>
   </head>
   <body>
     <!-- Rules pop up -->
@@ -1365,6 +2169,25 @@
           </div>
         </div>
       </div>
+      <div style="margin-top:50px; margin-left:50px; margin-right:50px; margin-bottom: 50px">
+        <h3><a style="color: white;" href="index.html">sm64js.com</a> Privacy Policy </h3>
+        <h5> <b> sm64js mmo uses Discord OAuth or Google OAuth only to grab a unique account ID and Discord display name for discord users, no other account information is ever accessed.  The purpose of this account ID is to manage and prevent spam accounts that can make the game experience less enjoyable, less safe, or innaproporiate for our users.  </b></h5>
+        <p>sm64js.com operates the sm64js.com website, which provides the Service. </p>
+        <p>This page is used to inform website visitors regarding our policies with the collection, use, and disclosure of Personal Information for anyone who decides to use our Service, the sm64js.com website.</p>
+        <p>If you choose to use our Service, then you agree to the collection and use of information in relation with this policy. The Personal Information that we collect are used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy.</p>
+        <p>Information Collection and Use</p>
+        <p>For a better experience while using our Service, we may require you to provide us with a username and password. These are stored encrypted within our database and are used solely for identifying accounts. We do not collect information such as real names or addresses. All user-given data will not be given to a third-party service outside of Google Analytics.</p>
+        <p>Log Data</p>
+        <p>We want to inform you that whenever you visit our Service, we collect information that your browser sends to us called Log Data. This Log Data may include information such as your computer’s Internet Protocol ("IP") address, browser version, pages of our Service that you visit, the time and date of your visit, the time spent on those pages, and other statistics. We use Google Analytics to help us improve our Service and that data will not be given out to a third-party.</p>
+        <p>Security</p>
+        <p>We value your trust in providing us your Personal Information, and we aim to use commercially acceptable means of protecting it. Please remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.</p>
+        <p>Links to Other Sites</p>
+        <p>Our Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by us. Therefore, we strongly advise you to review the Privacy Policy of these websites. We have no control over, and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
+        <p>Changes to This Privacy Policy</p>
+        <p>We may update our Privacy Policy from time to time. Thus, we advise you to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately after they are posted on this page.</p>
+        <p>Contact Us</p>
+        <p>If you have any questions or suggestions regarding our Privacy Policy, do not hesitate to email us: <a style="font-family: Helvetica, Arial, sans-serif;" href="mailto:sm64js@gmail.com">sm64js@gmail.com</a></p>
+    </div>
     </main>
   </body>
 </html>
