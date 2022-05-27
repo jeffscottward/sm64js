@@ -1,7 +1,6 @@
 import * as Keydrown from "keydrown";
 import { gameData, sendChat, submitPlayerName } from "./mmo/socket";
 import { tauntCommands, handleTaunt } from "./mmo/graphics/taunt";
-import { startGame, gameStarted } from "./index";
 
 /////// Keyboard / Gamepad Input ////////
 const $ = document.querySelector
