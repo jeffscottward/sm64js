@@ -4,5 +4,5 @@
 
 ### Prettier formatting settings:
 "prettier.semi": false,  
-"prettier.tabWidth": 4,  
+"prettier.tabWidth": 2,  
 "prettier.printWidth": 120  

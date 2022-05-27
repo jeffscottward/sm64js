@@ -50,7 +50,7 @@ module.exports = (env) => ({
   ],
   output: {
     publicPath: "/",
-    filename: "game-bundle.js",
+    filename: "game-bundle-[hash].js",
   },
   optimization: {
     minimizer: [new TerserWebpackPlugin({})],
