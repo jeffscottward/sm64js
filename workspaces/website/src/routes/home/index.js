@@ -14,6 +14,31 @@ const Home = () => {
           src="assets/title.png"
           style={{ maxWidth: "100%", marginBottom: "1rem" }}
         />
+        <div style={{ display: "flex", marginBottom: '1rem' }}>
+          <form id="romSelect" style={{ marginRight: "1rem" }}>
+            <h4 className="romSelectText" style={{ margin: " 0 0 .25rem 0" }}>
+              Select US sm64 (z64) ROM File from your computer
+            </h4>
+            <input id="romFile" className="romFileText" type="file" />
+            <input
+              className="ROMinput loadRomButton"
+              type="submit"
+              value="Load ROM"
+            />
+          </form>
+          <h6
+            id="romMessage"
+            className="romMessageText"
+            style={{ margin: " 0 0 .25rem 0" }}
+          >
+            SM64JS uses the textures and other game assets from the
+            original game. <br />
+            Due to copyright issues, we cannot host those assets on this site.{" "}
+            <br />
+            Please select a sm64 ROM to extract those assets before you can
+            play.
+          </h6>
+        </div>
         <canvas id="fullCanvas" width="1280" height="720"></canvas>
         <main id="mainContent">
           <div className="siteMargins">
@@ -42,23 +67,7 @@ const Home = () => {
             </details>
 
             {/* <!-- Submit ROM form --> */}
-            <form id="romSelect">
-              <h4 className="romSelectText">
-                Select US sm64 (z64) ROM File from your computer
-              </h4>
-              <input id="romFile" className="romFileText" type="file" />
-              <input
-                className="ROMinput loadRomButton"
-                type="submit"
-                value="Load ROM"
-              />
-            </form>
-            <h6 id="romMessage" className="romMessageText">
-              This project uses the textures and other game assets from the
-              original game. Due to copyright issues, I cannot host those assets
-              on this site. Please select a sm64 ROM to extract those assets
-              before you can play.
-            </h6>
+
             {/* <!-- Start of signboxBackground --> */}
             <div id="signboxBorder" className="shunned">
               <div id="signboxBackground">
